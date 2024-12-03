@@ -1,13 +1,9 @@
-function countZeros(n) {
-    let count = 0;
-    for (let i = 1; i <= n; i++) {
-      const str = i.toString();
-      for (let char of str) {
-        if (char === '0') count++;
-      }
-    }
-    return count;
+function findMissingNumber(arr) {
+    const n = arr.length + 1; // Array size + 1
+    const totalSum = (n * (n + 1)) / 2; // Sum of first n natural numbers
+    const arraySum = arr.reduce((acc, x) => acc + x, 0);
+    return totalSum - arraySum;
   }
   
-  console.log(countZeros(50)); // Output: 5 (10, 20, 30, 40, 50)
+  console.log(findMissingNumber([1, 2, 3, 5, 6])); // Output: 4
   
