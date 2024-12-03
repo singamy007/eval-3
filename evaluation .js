@@ -1,11 +1,13 @@
-// Classic Function
-button.addEventListener('click', function() {
-    console.log(this);  // refers to the button
-  });
+class Person {
+    constructor(name) {
+      this.name = name;
+    }
   
-  // Arrow Function
-  button.addEventListener('click', () => {
-    console.log(this);  // refers to the outer scope (e.g., window)
-  });
- 
+    sayHello() {
+      console.log(`Hello, my name is ${this.name}`);
+    }
+  }
+  
+  const person = new Person("Alice");
+  person.sayHello(); // Output: Hello, my name is Alice
   
