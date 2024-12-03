@@ -1,13 +1,30 @@
-class Person {
-    constructor(name) {
-      this.name = name;
+function reverseWords(sentence) {
+    let words = [];
+    let word = "";
+  
+    for (let i = 0; i < sentence.length; i++) {
+      if (sentence[i] === ' ') {
+        words.push(word);
+        word = "";
+      } else {
+        word += sentence[i];
+      }
+    }
+    words.push(word);
+  
+    let reversedSentence = "";
+    for (let j = words.length - 1; j >= 0; j--) {
+      reversedSentence += words[j];
+      if (j !== 0) {
+        reversedSentence += " ";
+      }
     }
   
-    sayHello() {
-      console.log(`Hello, my name is ${this.name}`);
-    }
+    return reversedSentence;
   }
   
-  const person = new Person("Alice");
-  person.sayHello(); // Output: Hello, my name is Alice
+  const sentence = "Hello World from VS Code!";
+  const result = reverseWords(sentence);
+  console.log(`Original Sentence: ${sentence}`);
+  console.log(`Reversed Sentence: ${result}`);
   
