@@ -1,22 +1,13 @@
-function isPalindrome(word) {
-    let length = word.length;
-  
-    // Compare characters from the beginning and end of the string
-    for (let i = 0; i < length / 2; i++) {
-      if (word[i] !== word[length - 1 - i]) {
-        return false; // If characters don't match, it's not a palindrome
+function countZeros(n) {
+    let count = 0;
+    for (let i = 1; i <= n; i++) {
+      const str = i.toString();
+      for (let char of str) {
+        if (char === '0') count++;
       }
     }
-    
-    return true; // If all characters match, it's a palindrome
+    return count;
   }
   
-  // Input from user
-  const word = prompt("Enter a word to check if it's a palindrome:");
-  
-  if (isPalindrome(word)) {
-    console.log(`${word} is a palindrome.`);
-  } else {
-    console.log(`${word} is not a palindrome.`);
-  }
+  console.log(countZeros(50)); // Output: 5 (10, 20, 30, 40, 50)
   
