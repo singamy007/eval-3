@@ -1,9 +1,21 @@
-function add(a) {
-    return function(b) {
-      return a + b;
-    };
+function permute(str, l, r) {
+    if (l === r) {
+      console.log(str);
+    } else {
+      for (let i = l; i <= r; i++) {
+        str = swap(str, l, i);
+        permute(str, l + 1, r);
+        str = swap(str, l, i); // backtrack
+      }
+    }
   }
   
-  const add5 = add(5); // Returns a function
-  console.log(add5(3)); // Output: 8
+  function swap(str, i, j) {
+    let charArray = str.split('');
+    [charArray[i], charArray[j]] = [charArray[j], charArray[i]];
+    return charArray.join('');
+  }
+  
+  const str = "abc";
+  permute(str, 0, str.length - 1);
   
